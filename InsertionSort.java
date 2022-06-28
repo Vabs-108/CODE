@@ -1,85 +1,33 @@
-
-
-
-class InsertionSort
-{
-    private int n[]=new int[6];
-    public void getArray(int x[])
-    {
-        n=x;
-    }
-    public void putArray()
-    {
-        for(int i = 0 ;i<=n.length-1;i++)
-        {
-            System.out.print(n[i]+"\t");
+import java.util.*;
+class InsertionSort{
+    public static void main(String[] args) {
+        int a[]= new int[5];
+        int temp;
+        System.out.println("Please enter array");
+        Scanner sc=new Scanner(System.in);
+        for(int i=0;i<=a.length-1;i++){
+            a[i]=sc.nextInt();
         }
-    }
-    
-   
-    
-    public void qs(int low,int high)
-    {
-        if(low>high)
-            return;
-        int pivot,i,j,temp;
-        pivot = n[low];
-        i = low+1;
-        j= high;
-        while(i<=j)
-        {
-            while((i<=high)&& (n[i]<=pivot))
-            {
-               i++;
-            }
-            while((j>=low)&&(n[j]>pivot))
-            {
+        System.out.println("This is your array before sorting");
+        for(int i=0;i<=a.length-1;i++){
+            System.out.println(a[i]);
+        }
+
+
+        for(int i=1;i<a.length-1;i++){
+            temp=a[i];
+            int j=i-1;
+            while(j>=0&&a[j]>temp){
+                a[j+1]=a[j];
                 j--;
             }
-            if(i<j)
-            {
-             temp = n[i];
-             n[i]=n[j];
-             n[j]=temp;
-            }
+            a[j+1]=temp;
         }
-        
-        if(low<j)
-        {
-            temp = n[low];
-            n[low]=n[j];
-            n[j]=temp;
+        System.out.println("This is your array after sorting");
+        for(int i=0;i<=a.length-1;i++){
+            System.out.println(a[i]);
         }
-        
-        qs(low,j-1);
-        qs(j+1,high);
-        
-        
-    } 
-           
-    
 
-
-
-    public static void main(String[] args) {
-        int arr[]={5,89,12,14,8,10};
-        InsertionSort obj = new InsertionSort();
-        obj.getArray(arr);
-        obj.qs(0, arr.length-1);
-        obj.putArray();
-        
     }
     
 }
-
-
-//====================================================
-
-//merge sort 
-
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */

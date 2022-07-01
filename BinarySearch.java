@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class BinarySearch {
  static int binarySearch(int[] arr,int target){
     int start=0;
-    int end=arr.length;
+    int end=arr.length-1;
    
     while(start<=end){
         int mid=start+(end-start)/2; //if we right start+end/2 integer has fixed size 
@@ -31,7 +31,7 @@ public class BinarySearch {
     for(int i=0;i<arr.length-1;i++){
         arr[i]=sc.nextInt();
     }
-   int ans=binarySearch(arr,5);
+   int ans=binarySearch(arr,5); // main k ander bina object k he function call hojayega
    System.out.println(+ans);
   }
 }
